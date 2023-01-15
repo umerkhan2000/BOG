@@ -25,7 +25,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         _instance = this;
         Assert.AreEqual(1, FindObjectsOfType<RoomManager>().Length);
-        photonViewComponent = GetComponent<PhotonView>();
+        //photonViewComponent = GetComponent<PhotonView>();
 
     }
     private void Start()
@@ -155,4 +155,5 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
 
     #endregion
+
 }
