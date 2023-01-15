@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +11,6 @@ public class Player : MonoBehaviour
 
     PlayerMovementController playerMovementController;
     PlayerInputController playerInputController;
-
 
     private void OnEnable()
     {

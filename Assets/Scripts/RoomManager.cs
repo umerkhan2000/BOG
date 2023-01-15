@@ -10,6 +10,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public static RoomManager _instance;
     PhotonView photonViewComponent;
     GameManager gm;
+    public TextMeshProUGUI pingText;
     public bool DidTimeout { private set; get; }
     static readonly RoomOptions s_RoomOptions = new RoomOptions
     {
@@ -18,6 +19,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PublishUserId = true,
 
     };
+
 
     void Awake()
     {
@@ -28,14 +30,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
     private void Start()
     {
-        StartCoroutine(DoJoinOrCreateRoom("a"));
+        StartCoroutine(DoJoinOrCreateRoom("bsad"));
     }
-    //private void Start()
-    //{
-    //    JoinOrCreateRoom("1");
-
-    //}
-    #region All Room Settings
+        #region All Room Settings
     public override void OnCreatedRoom()
     {
         base.OnCreatedRoom();
@@ -150,7 +147,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
     IEnumerator SynchroniseGame()
     {
         PhotonNetwork.Instantiate("Player Holder",new Vector3(),Quaternion.identity);
-        yield return null;
+        while (PhotonNetwork.IsConnected)
+        {
+            yield return new WaitForSeconds(1);
+            pingText.text = PhotonNetwork.GetPing().ToString();
+        }
     }
 
     #endregion

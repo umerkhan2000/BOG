@@ -21,6 +21,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        photonView =GetComponent<PhotonView>();
     }
     private void Start()
     {
@@ -50,7 +51,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Movevement()
     {
-        if (direction==Vector2.zero)
+        if (direction==Vector2.zero || !photonView.IsMine)
         {
             return;
         }
@@ -58,7 +59,7 @@ public class PlayerMovementController : MonoBehaviour
     }
     public void Jump()
     {
-        if ( currentJumps<=0)
+        if ( currentJumps<=0 || !photonView.IsMine)
         {
             return;
         }
@@ -71,16 +72,9 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.CompareTag("Land"))
         {
             canJump = true;
-            Debug.Log("enter");
             currentJumps = totalJumps;
         }
         
-    }
-          private void OnCollisionExit2D(Collision2D collision)
-    {
-        Debug.Log("exit");
-        
-
     }
     internal void SetMoveDirection(Vector2 direction)=>this.direction= direction;
     
