@@ -648,7 +648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1465307817
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,13 +1002,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4768272752694850427, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
+      propertyPath: wallMoveDownSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768272752694850427, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
+      propertyPath: wallMoveDownSpeedLimit
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4768272752983003094, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
       propertyPath: m_Name
       value: Player Holder
-      objectReference: {fileID: 0}
-    - target: {fileID: 4768272752983003094, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4768272752983003095, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
       propertyPath: m_RootOrder

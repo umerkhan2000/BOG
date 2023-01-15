@@ -56,6 +56,14 @@ public class PlayerMovementController : MonoBehaviour
 
             rb.velocity = new Vector2(rb.velocity.x, Vector2.ClampMagnitude(rb.velocity, jumpMaxSpeed).y);
         }
+        if (rb.velocity.y <0 && rb.gravityScale ==0)
+        {
+            if (rb.velocity.y<-wallMoveDownSpeedLimit)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, Vector2.ClampMagnitude(rb.velocity, wallMoveDownSpeedLimit).y);
+
+            }
+        }
     }
 
     private void Movevement()
@@ -79,7 +87,19 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        currentJumps = totalJumps;
+        if (collision.collider.CompareTag("Land"))
+        {
+
+            currentJumps = totalJumps;
+
+        }
+        if (collision.collider.CompareTag("Wall"))
+        {
+            currentJumps = totalJumps;
+            rb.gravityScale = 0;
+
+
+        }
         if (collision.collider.CompareTag("Player"))
         {
             Debug.Log("player");
@@ -97,6 +117,7 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        rb.gravityScale = 1;
         canWallMoveDown = false;
     }
     internal void SetMoveDirection(Vector2 direction) => this.direction = direction;
