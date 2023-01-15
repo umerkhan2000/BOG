@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     PlayerMovementController playerMovementController;
     PlayerInputController playerInputController;
 
+
     private void OnEnable()
     {
         playerInputController = GetComponentInParent<PlayerInputController>();
@@ -31,8 +32,6 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         playerMovementController = null;
-
-        //playerInputController.playerActions.Movement.canceled -= Move;
 
     }
 

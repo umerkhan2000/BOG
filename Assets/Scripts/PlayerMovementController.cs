@@ -10,9 +10,14 @@ public class PlayerMovementController : MonoBehaviour
     public float moveMaxSpeed;
     public float jumpPower;
     public Vector2 direction;
+    public bool canJump;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+    private void Start()
+    {
+        canJump = true;
     }
     private void LateUpdate()
     {
@@ -34,8 +39,16 @@ public class PlayerMovementController : MonoBehaviour
     }
     public void Jump()
     {
+        if (!canJump)
+        {
+            return;
+        }
         rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        canJump = true;
     }
     internal void SetMoveDirection(Vector2 direction)=>this.direction= direction;
     
