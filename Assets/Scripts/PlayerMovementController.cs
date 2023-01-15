@@ -27,6 +27,7 @@ public class PlayerMovementController : MonoBehaviour
     public float wallMoveDownSpeed;
     public float wallMoveDownSpeedLimit;
 
+    public Vector2 lookingDirection;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -64,6 +65,7 @@ public class PlayerMovementController : MonoBehaviour
             return;
         }
         rb.AddForce(direction * moveSpeed, ForceMode2D.Impulse);
+        lookingDirection = direction.normalized;
     }
     public void Jump()
     {
@@ -78,8 +80,9 @@ public class PlayerMovementController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         currentJumps = totalJumps;
-        if (collision.collider.CompareTag("Land"))
+        if (collision.collider.CompareTag("Player"))
         {
+            Debug.Log("player");
         }
 
 
