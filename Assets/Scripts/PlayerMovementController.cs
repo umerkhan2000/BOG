@@ -4,57 +4,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour{
+public class PlayerMovementController : MonoBehaviour
+{
     protected Rigidbody2D rb;
-    
+
     public float moveSpeed;
     public float moveMaxSpeed;
     [Space]
+    [Space]
+    [Space]
     public float jumpPower;
-    //public float jumpMaxSpeed;
+    public float jumpMaxSpeed;
     public int totalJumps;
     int currentJumps;
     internal Vector2 direction;
-    bool canJump;
+    bool canWallMoveDown;
     PhotonView photonView;
     private Vector3 remotePosition;
+    [Space]
+    [Space]
+    [Space]
+    public float wallMoveDownSpeed;
+    public float wallMoveDownSpeedLimit;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        photonView =GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
     }
     private void Start()
     {
-        canJump = true;
-        currentJumps= totalJumps;
+        currentJumps = totalJumps;
     }
     private void FixedUpdate()
     {
         Movevement();
 
-        
+
     }
     private void Update()
     {
-       
+
 
         if (rb.velocity.SqrMagnitude() >= moveMaxSpeed && photonView.IsMine)
         {
-            rb.velocity = new Vector2(Vector2.ClampMagnitude(rb.velocity, moveMaxSpeed).x,rb.velocity.y);
-        }  
-        //if (rb.velocity.y >= jumpMaxSpeed)
-        //{
+            rb.velocity = new Vector2(Vector2.ClampMagnitude(rb.velocity, moveMaxSpeed).x, rb.velocity.y);
+        }
+        if (rb.velocity.y > jumpMaxSpeed)
+        {
 
-        //    rb.velocity = new Vector2(rb.velocity.x, Vector2.ClampMagnitude(rb.velocity, jumpMaxSpeed).y);
-        //}
-
-        //Debug.Log(rb.velocity.magnitude); 
+            rb.velocity = new Vector2(rb.velocity.x, Vector2.ClampMagnitude(rb.velocity, jumpMaxSpeed).y);
+        }
     }
 
     private void Movevement()
     {
-        if (direction==Vector2.zero || !photonView.IsMine)
+        if (direction == Vector2.zero || !photonView.IsMine)
         {
             return;
         }
@@ -62,7 +67,7 @@ public class PlayerMovementController : MonoBehaviour{
     }
     public void Jump()
     {
-        if ( currentJumps<=0 || !photonView.IsMine)
+        if (currentJumps <= 0 || !photonView.IsMine)
         {
             return;
         }
@@ -72,13 +77,25 @@ public class PlayerMovementController : MonoBehaviour{
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        currentJumps = totalJumps;
         if (collision.collider.CompareTag("Land"))
         {
-            canJump = true;
-            currentJumps = totalJumps;
         }
-        
+
+
     }
-    internal void SetMoveDirection(Vector2 direction)=>this.direction= direction;
-   
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Wall"))
+        {
+            canWallMoveDown = true;
+            rb.AddForce(Vector2.down * wallMoveDownSpeed, ForceMode2D.Impulse);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        canWallMoveDown = false;
+    }
+    internal void SetMoveDirection(Vector2 direction) => this.direction = direction;
+
 }

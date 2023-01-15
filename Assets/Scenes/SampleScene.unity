@@ -311,7 +311,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 602041931}
   m_Layer: 0
   m_Name: Land (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +369,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 602041930}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b8e20076c928737488a1fc25110e7cd6, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -648,7 +648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1465307817
 Transform:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 2049264943}
   m_Layer: 0
   m_Name: Land (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -911,7 +911,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2049264942}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b8e20076c928737488a1fc25110e7cd6, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1002,22 +1002,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4768272752694850427, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
-      propertyPath: jumpPower
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4768272752694850427, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
-      propertyPath: totalJumps
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4768272752694850427, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
-      propertyPath: jumpMaxSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4768272752694850430, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4768272752983003094, guid: 385746fcfa6b98147b77c27efc5be637, type: 3}
       propertyPath: m_Name
       value: Player Holder
