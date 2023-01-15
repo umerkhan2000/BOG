@@ -15,11 +15,14 @@ public class Player : MonoBehaviour
     {
         playerInputController = GetComponentInParent<PlayerInputController>();
         playerMovementController = GetComponent<PlayerMovementController>();
+       
+    }
+    private void Start()
+    {
         playerInputController.playerActions.Movement.started += Move;
         playerInputController.playerActions.Movement.canceled += Move;
         playerInputController.playerActions.Jump.started += Jump;
     }
-
     private void Jump(InputAction.CallbackContext obj)
     {
         playerMovementController.Jump();    
