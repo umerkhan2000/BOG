@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,11 +7,17 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     protected Rigidbody2D rb;
+    
     public float moveSpeed;
     public float moveMaxSpeed;
+    [Space]
     public float jumpPower;
-    public Vector2 direction;
-    public bool canJump;
+    //public float jumpMaxSpeed;
+    public int totalJumps;
+    int currentJumps;
+    internal Vector2 direction;
+    bool canJump;
+    PhotonView photonView;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,37 +25,62 @@ public class PlayerMovementController : MonoBehaviour
     private void Start()
     {
         canJump = true;
+        currentJumps= totalJumps;
     }
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        if (rb.velocity.magnitude>=moveMaxSpeed)
-        {
-            return;
-        }
         Movevement();
+
+        
+    }
+    private void Update()
+    {
+        if (rb.velocity.SqrMagnitude() >= moveMaxSpeed)
+        {
+            rb.velocity = new Vector2(Vector2.ClampMagnitude(rb.velocity, moveMaxSpeed).x,rb.velocity.y);
+        }  
+        //if (rb.velocity.y >= jumpMaxSpeed)
+        //{
+
+        //    rb.velocity = new Vector2(rb.velocity.x, Vector2.ClampMagnitude(rb.velocity, jumpMaxSpeed).y);
+        //}
+
+        //Debug.Log(rb.velocity.magnitude); 
     }
 
     private void Movevement()
     {
-        if (direction==Vector2.zero )
+        if (direction==Vector2.zero)
         {
             return;
         }
         rb.AddForce(direction * moveSpeed, ForceMode2D.Impulse);
-
     }
     public void Jump()
     {
-        if (!canJump)
+        if ( currentJumps<=0)
         {
             return;
         }
         rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        currentJumps -= 1;
 
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        canJump = true;
+        if (collision.collider.CompareTag("Land"))
+        {
+            canJump = true;
+            Debug.Log("enter");
+            currentJumps = totalJumps;
+        }
+        
+    }
+          private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log("exit");
+        
+
     }
     internal void SetMoveDirection(Vector2 direction)=>this.direction= direction;
     
