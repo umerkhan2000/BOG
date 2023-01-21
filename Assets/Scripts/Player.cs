@@ -13,11 +13,15 @@ public class Player : MonoBehaviour
     PlayerInputController playerInputController;
     PlayerAttackGenerater attackGenerator;
 
+    Vector2 playerDirection = Vector2.right;
+    [SerializeField] float fireRate = 0.5f;
+    float nextFire = 0.0f;
+
     private void OnEnable()
     {
         playerInputController = GetComponentInParent<PlayerInputController>();
         playerMovementController = GetComponent<PlayerMovementController>();
-        attackGenerator =GetComponent<PlayerAttackGenerater>();
+        attackGenerator = GetComponent<PlayerAttackGenerater>();
 
 
     }
@@ -31,7 +35,11 @@ public class Player : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext obj)
     {
-        attackGenerator.Fire(playerMovementController.direction);
+        if(Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            attackGenerator.Fire(playerMovementController.direction, playerDirection);
+        }
             }
 
     private void Jump(InputAction.CallbackContext obj)
@@ -48,5 +56,10 @@ public class Player : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         playerMovementController.SetMoveDirection(obj.ReadValue<Vector2>());
+
+        if(obj.ReadValue<Vector2>() != Vector2.zero)
+        {
+            playerDirection = obj.ReadValue<Vector2>();
+        }
     }
 }
