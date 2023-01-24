@@ -14,8 +14,7 @@ public class Player : MonoBehaviour
     PlayerAttackGenerater attackGenerator;
 
     Vector2 playerDirection = Vector2.right;
-    [SerializeField] float fireRate = 0.5f;
-    float nextFire = 0.0f;
+  
 
     private void OnEnable()
     {
@@ -35,12 +34,10 @@ public class Player : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext obj)
     {
-        if(Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
+       
             attackGenerator.Fire(playerMovementController.direction, playerDirection);
-        }
-            }
+        
+    }
 
     private void Jump(InputAction.CallbackContext obj)
     {

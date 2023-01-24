@@ -15,9 +15,9 @@ public class Projectile : MonoBehaviour
     //    rb.GetComponent<Rigidbody2D>();
     //}
 
-    public void SetDirection(Vector2 dir)
+    public void SetDirection(Vector2 dir,float bulletspeed)
     {
-        rb.velocity = dir * moveSpeed;
+        rb.velocity = dir * bulletspeed;
     }
     private void Update()
     {
