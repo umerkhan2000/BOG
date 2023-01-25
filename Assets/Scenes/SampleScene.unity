@@ -1275,8 +1275,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunPrefabs:
+  - {fileID: 2015416867779723716, guid: 1153c6120f78e624da09b4ddb109de56, type: 3}
+  - {fileID: 2015416867779723716, guid: 1f0b23dee2886f44aa1ef3df63ba0780, type: 3}
   - {fileID: 2015416867779723716, guid: 02312460c37bdb74297678e97111270b, type: 3}
-  - {fileID: 2015416867779723716, guid: 19d74c2a7ba79c7409a70bb45cb62408, type: 3}
+  - {fileID: 2015416867779723716, guid: 6d175180d13109c4c83b990846cb9d51, type: 3}
+  - {fileID: 2015416867779723716, guid: 2f0bbe42a08ab3e43b1b57a3886f17f8, type: 3}
+  - {fileID: 2015416867779723716, guid: c5c3d09c08b2c2a4ba609e58523a5e06, type: 3}
   levelSize: {fileID: 1923778052}
 --- !u!61 &1923778055
 BoxCollider2D:

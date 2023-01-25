@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2015416867779723719}
   - component: {fileID: 5144754669018603024}
   m_Layer: 0
-  m_Name: Rifle prefabe 1
+  m_Name: EquipedSMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c9ef79ba59db38f40bd698e29162563d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d990de03fe8c68745985fa624fe5d6ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,4 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc1f575a8fb4a24ca1d1dac44c0e603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 11400000, guid: 01c76fc425291614385e1aca2379f35d, type: 2}
+  manager: {fileID: 11400000, guid: 8d4973ca0a897b448a342581fa27266d, type: 2}

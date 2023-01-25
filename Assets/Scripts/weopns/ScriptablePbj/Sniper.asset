@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: Sniper
   m_EditorClassIdentifier: 
   weaponName: sniper
+  weaponType: Gun
   fireRate: 0
   bulletSpeed: 0
   knockBackValue: 0
+  weaponPrefab: {fileID: 2015416867779723716, guid: 15fcb945150ad114d97a256528fc04af, type: 3}
+  bulletCount: 0
+  explosionRadius: 0
+  explosionForce: 0
+  upwordDisplace: 0

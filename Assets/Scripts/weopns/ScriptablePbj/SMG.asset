@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: 
   weaponName: sub machine gun
+  weaponType: Gun
   fireRate: 0
   bulletSpeed: 0
   knockBackValue: 0
+  weaponPrefab: {fileID: 2015416867779723716, guid: 463862b004aa34649aaf2beae6b6da80, type: 3}
+  bulletCount: 0
+  explosionRadius: 0
+  explosionForce: 0
+  upwordDisplace: 0

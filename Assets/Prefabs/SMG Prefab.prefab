@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2015416867779723719}
   - component: {fileID: 2015416867779723737}
   - component: {fileID: 2015416867779723736}
-  - component: {fileID: -1677309473216394069}
+  - component: {fileID: 5144754669018603024}
   m_Layer: 0
-  m_Name: PistolPrefab
+  m_Name: SMG Prefab
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: be0bad5390709e8448cf566da354017a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d990de03fe8c68745985fa624fe5d6ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.02, y: 5.02}
+    oldSize: {x: 10, y: 5}
     newSize: {x: 2, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-1677309473216394069
+--- !u!114 &5144754669018603024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc1f575a8fb4a24ca1d1dac44c0e603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 11400000, guid: c6257a1b0ce892c488263ec1b3194e9c, type: 2}
+  manager: {fileID: 11400000, guid: 8d4973ca0a897b448a342581fa27266d, type: 2}
