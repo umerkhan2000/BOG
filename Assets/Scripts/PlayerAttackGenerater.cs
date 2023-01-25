@@ -84,7 +84,7 @@ public class PlayerAttackGenerater : MonoBehaviour
         {
             weaponManager= collision.gameObject.GetComponent<Weapon>().manager;
             Destroy(collision.gameObject);
-            GameObject weaponObj= PhotonNetwork.Instantiate(weaponManager.weaponPrefab, gameObject.transform.GetChild(0).transform.position,Quaternion.identity) ;
+            GameObject weaponObj= Instantiate(weaponManager.weaponPrefab, gameObject.transform.GetChild(0).transform.position,Quaternion.identity) ;
             bulletFired = 0;
             list.Add(weaponObj);
            
