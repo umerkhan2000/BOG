@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   weaponName: Rifle
+  weaponType: asdsad
   fireRate: 0
-  bulletSpeed: 0
+  bulletSpeed: 10
   knockBackValue: 0
+  weaponPrefab: {fileID: 2015416867779723716, guid: 8ecbe6a3e84065a49bbb3a3406eca584, type: 3}
+  bulletCount: 5
+  explosionRadius: 8
+  explosionForce: 1000
+  upwordDisplace: 3

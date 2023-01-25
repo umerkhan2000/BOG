@@ -5,9 +5,14 @@ using UnityEngine;
 public class WeaponManager : ScriptableObject
 {
     public string weaponName;
+    public string weaponType;
     public float fireRate;
     public float bulletSpeed;
     public float knockBackValue;
     public GameObject weaponPrefab;
-  //  public GameObject[] weaponskin;
+    public int bulletCount;
+    public float explosionRadius;
+    public float explosionForce;
+    public float upwordDisplace;
+    //  public GameObject[] weaponskin;
 }
